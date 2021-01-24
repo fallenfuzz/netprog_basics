@@ -10,6 +10,10 @@ Illustrate the following concepts:
 - How to make an SNMP GET with PySNMP 
 - Intended to be entered into an interactive
   interpreter
+
+Sandbox Usage: The DevNet Always On IOS XE Sandbox does NOT
+have SNMP available.  If you'd like to try this example, you 
+can reserve the "IOS XE on CSR Recommended Code" Sandbox
 """
 
 from pysnmp.hlapi import *
@@ -30,6 +34,7 @@ errorIndication, errorStatus, errorIndex, varBinds = next(iterator)
 
 if errorIndication:  # SNMP engine errors
     print(errorIndication)
+    print("Check to be sure you're connected to the VPN for the DevNet Sandbox.")
 else:
     if errorStatus:  # SNMP agent errors
         print('%s at %s' % (errorStatus.prettyPrint(),
